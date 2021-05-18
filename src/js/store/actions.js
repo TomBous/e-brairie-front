@@ -1,0 +1,14 @@
+// APP ACTIONS
+const APP_INIT = "APP_INIT"
+const APP_READY = "APP_READY"
+const APP_RESET = "APP_RESET"
+// USER ACTIONS
+const USER_IS_ADMIN = "USER_IS_ADMIN"
+
+
+export {
+    APP_INIT,
+    APP_READY,
+    APP_RESET,
+    USER_IS_ADMIN
+}
