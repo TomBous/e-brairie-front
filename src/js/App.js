@@ -1,23 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
-import Header from './layout/Header'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 import { APP_INIT, APP_READY, APP_RESET, USER_IS_ADMIN } from './store/actions'
-import { COLORS } from './theme'
 
-const Title = styled.h1`
-  font-size: 2em;
-  text-align: center;
-  color: palevioletred;
-`;
-const LandingSection = styled.section`
-  width: 100%;
-  background-color: ${COLORS.secondary};
-  height: 50vh;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-`;
+import Layout from './layout/Layout'
+// ROUTER COMPONENTS
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
+
 
 const App = () => {
     const dispatch = useDispatch();
@@ -38,12 +29,15 @@ const App = () => {
     console.log('APP global state : ', appState)
 
     return (
-        <>
-            <Header />
-            <LandingSection>
-                <Title>Hello World !</Title>
-            </LandingSection>
-        </>
+        <Router>
+            <Switch>
+                <Route path="/register" exact component={Register} />
+                <Route path="/login" exact component={Login} />
+                <Layout>
+                    <Route path="/" exact component={Home} />
+                </Layout>
+            </Switch>
+        </Router>
     )
 }
 

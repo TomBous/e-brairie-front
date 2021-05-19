@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { COLORS, SIZES } from '../theme'
 
-const Nav = styled.header`
+const HeaderBar = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
@@ -27,57 +28,57 @@ const Nav = styled.header`
             cursor: pointer;
         }
     }
-
-    ul {
-        width: 400px;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-        li {
-            text-decoration: none;
-            list-style: none;
-            padding: 0 .5em;
-            &:hover {
-                cursor: pointer;
-                background-color: ${COLORS.primaryDarker}
-            }
-        }
-        li > span {
-            display: inline-block;
-            position: relative;
-            opacity: 0.9;
-            padding: 1em 0em;
-            margin: 0 1em;
-            &::before {
-                width: 100%;
-                bottom: 3px;
-                opacity: 0;
-                transition: 300ms;
-                height: 4px;
-                content: "";
-                position: absolute;
-                background-color: ${COLORS.accent};
-            }
-
-            &:hover::before {
-                bottom: 10px;
-                opacity: 1;
-            }
+`;
+const Nav = styled.nav`
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    p {
+        padding: 0 .5em;
+        &:hover {
+            cursor: pointer;
+            background-color: ${COLORS.primaryDarker}
         }
     }
-`;
+    p > a {
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        color: ${COLORS.secondaryLighter};
+        opacity: 0.9;
+        padding: 1em 0em;
+        margin: 0 1em;
+        &::before {
+            width: 100%;
+            bottom: 3px;
+            opacity: 0;
+            transition: 300ms;
+            height: 4px;
+            content: "";
+            position: absolute;
+            background-color: ${COLORS.accent};
+        }
+
+        &:hover::before {
+            bottom: 10px;
+            opacity: 1;
+        }
+    }
+
+`
 
 const Header = () => {
     return (
-        <Nav>
+        <HeaderBar>
             <div className="title">E-brairie</div>
-            <ul>
-                <li><span>Item 1</span></li>
-                <li><span>Panier</span></li>
-                <li><span>Mon compte</span></li>
-            </ul>
-        </Nav>
+            <Nav>
+                <p><Link to="/">Home</Link></p>
+                <p><Link to="/register">Register</Link></p>
+                <p><Link to="/login">Login</Link></p>
+            </Nav>
+        </HeaderBar>
     )
 }
 

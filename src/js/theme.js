@@ -2,6 +2,7 @@ const COLORS = {
     primary: "#119DA4",
     primaryLighter: "#13B0B9",
     primaryDarker: "#108D94",
+    primaryGradient: "linear-gradient(0deg, rgba(16,141,148,1) 0%, rgba(15,168,177,1) 100%);",
 
     secondary: "#f5f5f5",
     secondaryLighter: "#fafafa",
@@ -9,6 +10,7 @@ const COLORS = {
     accent: "#FFC857",
 
     red: "#B76D68",
+    green: "#43a047",
 
     darkblue: "#00487C",
     darkgrey: "#00487C",
