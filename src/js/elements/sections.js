@@ -7,7 +7,7 @@ const FullSectionImage = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) ,url("${props => props.src}");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)) ,url(${props => props.src});
     background-size: cover;
 `;
 

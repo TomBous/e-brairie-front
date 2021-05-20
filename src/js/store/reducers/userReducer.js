@@ -1,6 +1,7 @@
 const initialState = {
-    name: "",
-    lastname: "",
+    firstName: "",
+    lastName: "",
+    isAuthenticated: false,
     isAdmin: false
 }
 
@@ -10,6 +11,12 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isAdmin: true
+            }
+        case "USER_IS_AUTHENTICATED":
+            return {
+                ...state,
+                isAuthenticated: true,
+                ...action.payload
             }
         default:
             return state
